@@ -29,8 +29,9 @@ jobs:
           
           - uses: actions/download-artifact@v8
             with:
-              name: strigus
-              path: mensagem.txt
+              name: strigus-upload
+              path: strigus
+              
           - name: Ver conteudo do diretorio
             run: ls -lha && ls ./strigus/
           - name: Acessa conteudo do arquivo
