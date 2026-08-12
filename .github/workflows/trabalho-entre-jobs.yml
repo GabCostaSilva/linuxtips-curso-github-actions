@@ -20,5 +20,5 @@ jobs:
           - name: Acessa arquivo mensagem
             run: cat conteudo.txt
           
-          - name: Acessa conteudo da pasta
-            run: ls -lha
+          - name: Acessa conteudo do arquivo
+            run: cat conteudo.txt
