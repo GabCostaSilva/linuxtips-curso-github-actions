@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Docker pull
-        run: docker pull {{ inputs.image-name }}
+        run: docker pull ${{ inputs.image-name }}
     
       - name: Docker images
         run: docker images
@@ -28,5 +28,5 @@ jobs:
         uses: docker/scout-action@v1.24.0
         with:
           command: cves
-          image: {{ inputs.image-name }}
+          image: ${{ inputs.image-name }}
          
