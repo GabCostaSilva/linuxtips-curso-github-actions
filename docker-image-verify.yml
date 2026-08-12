@@ -1,6 +1,6 @@
-workflow: 
-  name: Docker Image Verify
-  on:
+name: Docker Image Verify
+
+on:
     workflow_dispatch:
       inputs:
         image-name:
@@ -8,24 +8,25 @@ workflow:
           required: true
           type: string
   
-  jobs:
-    docker-image-verifier:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Login to Docker Hub
-          uses: docker/login-action@v4
-          with:
-            username: ${{ vars.DOCKERHUB_USERNAME }}
-            password: ${{ secrets.DOCKERHUB_TOKEN }}
+jobs:
+  docker-image-verifier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to Docker Hub
+        uses: docker/login-action@v4
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-        - name: Docker pull
-          run: docker pull {{ inputs.image-name }}
+      - name: Docker pull
+        run: docker pull {{ inputs.image-name }}
+    
+      - name: Docker images
+        run: docker images
       
-        - name: Docker images
-          run: docker images
-        
-        - name: Docker Scout
-          uses: docker/scout-action@v1.24.0
-          with:
-            command: cves
-            image: {{ inputs.image-name }}  
+      - name: Docker Scout
+        uses: docker/scout-action@v1.24.0
+        with:
+          command: cves
+          image: {{ inputs.image-name }}
+         
