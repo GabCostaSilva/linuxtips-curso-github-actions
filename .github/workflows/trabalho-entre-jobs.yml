@@ -13,7 +13,7 @@ jobs:
               run: cat /etc/os-release
             
             - name: Exibir mensagem
-              run: echo "Estou fazendo o curso de Github Actions da Linuxtips" > mensagem.txt
+              run: echo "Estou fazendo o curso de Github Actions da Linuxtips" > /home/ubuntu/mensagem.txt
             
             - uses: actions/upload-artifact@v7
               with:
