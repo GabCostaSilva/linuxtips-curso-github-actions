@@ -1,4 +1,4 @@
-name: Primeiro Workflow Linuxtips
+name: Vendo arquivos compartilhados entre steps
 
 on:
   push:
