@@ -1,0 +1,24 @@
+name: Primeiro Workflow Linuxtips
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+    job_1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Confere versao do Ubuntu
+              run: cat /etc/os-release
+            
+            - name: Exibir mensagem
+              run: echo "Estou fazendo o curso de Github Actions da Linuxtips"
+    job_2:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Acessa arquivo mensagem
+            run: cat conteudo.txt
+          
+          - name: Acessa conteudo da pasta
+            run: ls -lha
